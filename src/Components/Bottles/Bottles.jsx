@@ -1,21 +1,27 @@
-import { useEffect } from "react";
-import { useState } from "react";
-
+import { useEffect, useState } from "react";
+import Bottle from "../Bottle/Bottle";
+import "./Bottles.css";
 
 const Bottles = () => {
-    const[bottles, setBottles] = useState([])
+    const [bottles, setBottles] = useState([]);
 
-    //for load data
-
+    // Load data
     useEffect(() => {
-fetch('Bottle.json')//must put the currect json file name 
-.then (res=> res.json())
-.then (data=> setBottles(data));
-
+        fetch('Bottle.json') // Ensure correct path
+            .then(res => res.json())
+            .then(data => setBottles(data));
     }, []);
+
     return (
         <div>
-            <h2>Loaded Bottles Here: {bottles.length} </h2>
+            <h2>Loaded Bottles Here: {bottles.length}</h2>
+            <div className="Bottles-Container">
+            {
+                bottles.map(bottle => 
+                    <Bottle key={bottle.id} bottle={bottle} ></Bottle>
+                )
+            }
+            </div>
         </div>
     );
 };
