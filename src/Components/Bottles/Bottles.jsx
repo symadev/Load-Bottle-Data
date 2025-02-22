@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Bottle from "../Bottle/Bottle";
 import "./Bottles.css";
+import { addTols } from "../../Utilities/localstorage";
 
 const Bottles = () => {
     const [bottles, setBottles] = useState([]);
@@ -17,6 +18,7 @@ const Bottles = () => {
     const handleAddCart = bottle => {
         const newCart = [...cart, bottle];
         setCart(newCart);
+        addTols(bottle.id);
     }
 
     return (

@@ -10,6 +10,7 @@ const Bottle = ({ bottle,handleAddCart }) => {
             <h2>Price: ${price}</h2>
             <h2>Ratings: {ratings}</h2> 
             <button onClick= {()=>handleAddCart(bottle)}>Purchase</button>
+            
 
             {/* Fixed ratings */}
         </div>
